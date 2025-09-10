@@ -6,7 +6,7 @@ package com.mycompany.ex2atendimentobancario;
 import java.util.Scanner;
 /**
  *
- * @author SUDEMIR
+ * @author ISAAC - 1°DS AMS
  */
 public class EX2AtendimentoBancario {
     public static void main(String[] args) {
