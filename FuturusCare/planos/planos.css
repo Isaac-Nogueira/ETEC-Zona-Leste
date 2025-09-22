@@ -1,0 +1,329 @@
+body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    height: 37px;
+    padding: 5px;
+    border-width: 1px;
+    border-radius: 8px;
+    border-color: black;
+}
+
+/*Estilo da navbar*/
+nav {
+    top: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inicio {
+    color: #8A2AE2;
+}
+
+.logo1 {
+    width: 250px;
+    height: auto;
+}
+
+.botlinksnav {
+    display: flex;
+    gap: 20px;
+}
+
+.linksnav {
+    text-align: end;
+    font-size: 18px;
+    display: flex;
+    padding-top: 18px;
+    gap: 25px;
+}
+
+.botsnav {
+    margin-top: 10px;
+}
+
+.botent {
+    background-color: #953CE4;
+    width: 95px;
+    font-size: 18px;
+}
+
+.botent a {
+    color: white;
+}
+
+.botcad {
+    background-color: white;
+    width: 95px;
+    font-size: 18px;
+}
+/*Estilo da navbar*/
+
+hr {
+    border: none;
+    height: 2px;
+    width: 100%;
+    background-color: #EFEFEF;
+}
+
+/*Estilo do título e descrição da página*/
+.titledesc {
+    gap: 5px;
+}
+
+.titulo {
+    display: flex;
+    font-size: 35px;
+    padding: 0 0 0 45px;
+    gap: 10px;
+    margin-bottom: -3%;
+    margin-top: -2%;
+}
+
+.color {
+    background-image: linear-gradient(to right, #8A2AE2, #A7BAE2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.descricao {
+    font-size: 25px;
+    padding: 0 0 0 30px;
+    margin-top: 0;
+}
+/*Estilo do título e descrição da página*/
+
+/*Estilo dos botões de tipos de planos*/
+.botsma {
+    margin-left: 30px;
+}
+
+.botmensal {
+    background-color: white;
+    width: 250px;
+    font-size: 18px;
+}
+
+.botanual {
+    background-color: #A053E8;
+    color: white;
+    width: 250px;
+    font-size: 18px;
+}
+/*Estilo dos botões de tipos de planos*/
+
+/*Estilo das opcões de planos da página*/
+.planos {
+    margin-left: 7%;
+    margin-right: 7%;
+    display: flex;
+    gap: 8%;
+}
+
+.hrplanos {
+    width: 100%;
+    margin-top: 5%;
+}
+
+.botplanos {
+    background-color: #A053E8;
+    color: white;
+    font-size: 90%;
+    width: 300px;
+}
+
+.plano1 {
+    height: 140%;
+    background-color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 2px solid #D3D3D3;
+    border-radius: 10px;
+}
+
+.h2essencial {
+    font-size: 35px;
+}
+
+.ptecenssial {
+    text-align: left;
+}
+
+.h3essencial {
+    font-size: 25px;
+}
+
+.pessencial {
+    font-size: 20px;
+}
+
+.plano2 {
+    border: 2px solid;
+    border-image: linear-gradient(to right, #A304FF, #E1B0FE);
+    border-image-slice: 1;
+    border-radius: 10px;
+    background: linear-gradient(to right, #F0F4FF, white);
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-bottom: 2%;
+    padding: 10px;
+}
+
+.iconpop {
+    display: flex;
+}
+
+.imgplano2 {
+    width: 35px;
+    height: 34px;
+    margin-top: 10px;
+}
+
+.popularidade {
+    margin-top: 19px;
+    margin-left: 5px;
+    font-size: 17px;
+    color: #9561E2;
+    border: 2px;
+    border-color: #9561E2;
+}
+
+.h2total {
+    font-size: 35px;
+}
+
+.pttotal {
+    text-align: left;
+}
+
+.h3total {
+    font-size: 25px;
+}
+
+.ptotal {
+    font-size: 20px;
+}
+
+.plano3 {
+    height: 100%;
+    background-color: white;
+    margin-top: 30px;
+    padding: 10px;
+    border: 2px solid #D3D3D3;
+    border-radius: 10px;
+}
+
+.h2completo {
+    font-size: 35px;
+}
+
+.ptcompleto {
+    text-align: left;
+}
+
+.h3completo {
+    font-size: 25px;
+}
+
+.pcompleto {
+    font-size: 20px;
+}
+
+.plano1 img {
+    width: 32px;
+    height: 32px;
+}
+
+.plano2 img {
+    width: 32px;
+    height: 32px;
+}
+
+.plano3 img {
+    width: 32px;
+    height: 32px;
+}
+/*Estilo das opções de planos da página*/
+
+/*Estilo das Vantagens dos planos*/
+.iconvant {
+    display: flex;
+    gap: 10px;
+}
+/*Estilo das Vantagens dos planos*/
+
+/*Estilo do footer*/
+footer {
+    bottom: 0;
+    background-color: #111827;
+    color: #EFEFEF;
+    width: 97.2%;
+    margin-left: -0.6%;
+    margin-bottom: -0.6%;
+    padding: 2%;
+    font-size: 85%;
+}
+
+.rodape {
+    display: flex;
+    gap: 3%;
+}
+
+.secao1 {
+    display: grid;
+}
+
+.emailfooter {
+    display: flex;
+    gap: 10px;
+}
+
+.emailfooter img {
+    width: 23.34665870666504px;
+    height: 33.497379302978516px;
+}
+
+.telfooter {
+    display: flex;
+    gap: 10px;
+}
+
+.telfooter img {
+    width: 25.37680435180664px;
+    height: 21.31651496887207px;
+}
+
+.rodapesub {
+    display: flex;
+    gap: 110%;
+}
+
+.gray p {
+    color: gray;
+}
+
+.pfooter {
+    margin-bottom: -2%;
+}
+
+.lightgray {
+    color: #F3F3F3;
+}
+
+.linksfooter a {
+    color: gray;
+    display: grid;
+}
+/*Estilo do footer*/
