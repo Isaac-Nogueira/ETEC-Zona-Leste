@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrossel de Imagens</title>
+  <link rel="stylesheet" href="carrossel.css" />
+</head>
+<body>
+  <main class="completo">
+    <div class="topo">
+      <h1>Bem-vindo ao site oficial da Academia Brasileira Agropecuária!</h1>
+      <div class="topo2">
+        <div>
+          <h3>Venha conhecer nossa Unidade Estudantil!</h3>
+          <a href="https://www.google.com/maps">Av. das Américas, 285 - São Paulo SP</a>
+        </div>
+        <div>
+          <img src="../imagens/Logo.png" alt="Logo">
+        </div>
+      </div>
+      <div>
+        <h4><b>Matérias oferecidas pela nossa Instituição:</b> Agroindústria, Horticultura, Agroecologia, Agricultura, Zootecnia, Avicultura, Gestão Ambiental, Agronegócio e Administração.</h4>
+      </div>
+    </div>
+    <div class="carrossel" id="carrossel">
+      <div class="fotos" id="fotos">
+        <figure class="foto">
+          <img src="../imagens/close-no-processo-de-transplante-de-plantas.jpg">
+        </figure>
+        <figure class="foto">
+          <img src="../imagens/mulher-fotorrealista-em-um-jardim-organico-sustentavel-colhendo-produtos.jpg">
+        </figure>
+        <figure class="foto">
+          <img src="../imagens/pessoas-plantando-vegetais-em-um-leito-de-jardim.jpg">
+        </figure>
+      </div>
+      <div class="botoes">
+        <button id="btDireita"><</button>
+        <button id="btEsquerda">></button>
+      </div>
+    </div>
+    <div class="barra">
+      <div id="pontos" class="pontos"></div>
+    </div>
+  </main>
+  <script src="carrossel.js"></script>
+</body>
+</html>
