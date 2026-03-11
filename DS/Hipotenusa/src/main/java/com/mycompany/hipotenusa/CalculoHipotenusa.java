@@ -25,13 +25,13 @@ public class CalculoHipotenusa {
     void cateto2() {
         System.out.println("Qual o valor do Segundo Cateto? (B): ");
         catetoB = sc.nextDouble();
+        
+        sc.close();
     }
     
     void result() {
         hQuadrado = catetoA * catetoA + catetoB * catetoB;
         h = Math.sqrt(hQuadrado);
         System.out.println("O valor da Hipotenusa é igual a: " + h);
-        
-        sc.close();
     }
 }
