@@ -1,2 +1,2 @@
 # ETEC-Zona-Leste
-Atividades de TPA, PW1 e DD
+Atividades de TPA, PW1, DD, PW2, PAM e DS
