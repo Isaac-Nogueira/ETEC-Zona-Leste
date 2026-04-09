@@ -37,6 +37,7 @@
         <textarea name="mensagem" rows="4"></textarea>
         <button type="submit">Enviar Dados</button>
     </form>
+    <div class="content"></div>
     <footer>
         <div class="footer-container">
             <div class="footer-col">
