@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 class Calculadora extends JFrame {
-    // ** Ações da Calculadora: Somar, Subtrair, Multiplicar, Dividir e Tirar a Raiz Quadrada da soma dos dois números **
-
     JLabel rotulo1, rotulo2, exibir;
 
     JTextField texto1, texto2;
@@ -39,7 +37,7 @@ class Calculadora extends JFrame {
         texto1.setBounds(120, 20, 200, 20);
         texto2.setBounds(120, 60, 200, 20);
 
-        exibir.setBounds(200, 160, 200, 20); //20 a mais que do último
+        exibir.setBounds(200, 160, 200, 20);
 
         somar.setBounds(50, 100, 120, 20);
         subtrair.setBounds(50, 130, 120, 20);
