@@ -1,154 +1,174 @@
 package org.example;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class Principal {
+class Calculadora extends JFrame {
+    // ** Ações da Calculadora: Somar, Subtrair, Multiplicar, Dividir e Tirar a Raiz Quadrada da soma dos dois números **
+
+    JLabel rotulo1, rotulo2, exibir;
+
+    JTextField texto1, texto2;
+
+    JButton somar, subtrair, multiplicar, dividir, raiz;
+
+    public Calculadora() {
+        super("Calculadora");
+
+        Container tela = getContentPane();
+
+        setLayout(null);
+
+        rotulo1 = new JLabel("1° Número: ");
+        rotulo2 = new JLabel("2° Número: ");
+        exibir = new JLabel("");
+
+        texto1 = new JTextField(5);
+        texto2 = new JTextField(5);
+
+        somar = new JButton("Somar");
+        subtrair = new JButton("Subtrair");
+        multiplicar = new JButton("Multiplicar");
+        dividir = new JButton("Dividir");
+        raiz = new JButton("Tirar a Raiz");
+
+        rotulo1.setBounds(50, 20, 100, 20);
+        rotulo2.setBounds(50, 60, 100, 20);
+
+        texto1.setBounds(120, 20, 200, 20);
+        texto2.setBounds(120, 60, 200, 20);
+
+        exibir.setBounds(200, 160, 200, 20); //20 a mais que do último
+
+        somar.setBounds(50, 100, 120, 20);
+        subtrair.setBounds(50, 130, 120, 20);
+        multiplicar.setBounds(50, 160, 120, 20);
+        dividir.setBounds(50, 190,120, 20);
+        raiz.setBounds(50, 220, 120, 20);
+
+        somar.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        int numero1, numero2, soma;
+
+                        soma = 0;
+
+                        numero1 = Integer.parseInt(texto1.getText());
+                        numero2 = Integer.parseInt(texto2.getText());
+
+                        soma = numero1 + numero2;
+
+                        exibir.setVisible(true);
+                        exibir.setText("A Soma é: " + soma);
+                    }
+                }
+        );
+
+        subtrair.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        int numero1, numero2, subtracao;
+
+                        subtracao = 0;
+
+                        numero1 = Integer.parseInt(texto1.getText());
+                        numero2 = Integer.parseInt(texto2.getText());
+
+                        subtracao = numero1 - numero2;
+
+                        exibir.setVisible(true);
+                        exibir.setText("A Subtração é: " + subtracao);
+                    }
+                }
+        );
+
+        multiplicar.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        int numero1, numero2, multiplicacao;
+
+                        multiplicacao = 0;
+
+                        numero1 = Integer.parseInt(texto1.getText());
+                        numero2 = Integer.parseInt(texto2.getText());
+
+                        multiplicacao = numero1 * numero2;
+
+                        exibir.setVisible(true);
+                        exibir.setText("A Multiplicação é: " + multiplicacao);
+                    }
+                }
+        );
+
+        dividir.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        int numero1, numero2, divisao;
+
+                        divisao = 0;
+
+                        numero1 = Integer.parseInt(texto1.getText());
+                        numero2 = Integer.parseInt(texto2.getText());
+
+                        divisao = numero1 / numero2;
+
+                        exibir.setVisible(true);
+                        exibir.setText("A Divisão é: " + divisao);
+                    }
+                }
+        );
+
+        raiz.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        int numero1, numero2;
+                        double raizquadrada, somaNumeros;
+
+                        raizquadrada = 0;
+
+                        numero1 = Integer.parseInt(texto1.getText());
+                        numero2 = Integer.parseInt(texto2.getText());
+
+                        somaNumeros = numero1 + numero2;
+
+                        raizquadrada = Math.sqrt(somaNumeros);
+
+                        exibir.setVisible(true);
+                        exibir.setText("A Raiz é: " + raizquadrada);
+                    }
+                }
+        );
+
+        exibir.setVisible(false);
+
+        tela.add(rotulo1);
+        tela.add(rotulo2);
+
+        tela.add(texto1);
+        tela.add(texto2);
+
+        tela.add(somar);
+        tela.add(subtrair);
+        tela.add(multiplicar);
+        tela.add(dividir);
+        tela.add(raiz);
+
+        tela.add(exibir);
+
+        setSize(400, 350);
+
+        setVisible(true);
+
+        setLocationRelativeTo(null);
+    }
     public static void main(String[] args) {
-        MenuCalculadora menu = new menuCalculadora();
-        menu.executarCalculadora();
-    }
-}
-
-class MenuCalculadora {
-    private Calculadora calculadora;
-    private int opcao;
-    private ConversorNumeros conversor;
-    private EntradaSaidaDados io;
-
-    public menuCalculadora() {
-        this.calculadora = new Calculadora();
-        this.opcao = -1;
-        this.coversor = new ConversorNumeros();
-        this.io = new EntradaSaidaDados();
-    }
-    public void executarCalculadora() {
-        do {
-            this.executarMenuPrincipal();
-            this.avaliarOpcaoEscolhida();
-        } while(this.opcao!=0);
-    }
-    private void executarMenuPrincipal() {
-        String menssagemMenu = "Selecione uma Opção "
-                +"/n 1 - Somar"
-                +"/n 2 - Subtrair"
-                +"/n 3 - Multiplicar"
-                +"/n 4 - Dividir"
-                +"/n 5 - Sair";
-        String EntradaDeDados = io.entradaDados(menssagemMenu);
-        this.opcao = conversor.stringToInt(entradaDados);
-    }
-    public void avaliarOpcaoEscolhida() {
-        String saida;
-        double num1=0, num2=0;
-        if (this.opcao != 0 && this.opcao<=4) {
-            String menssagemEntrada = "Digite o 1° número";
-            num1 = conversor.stringToDouble(io.entradaDados(menssagemEntrada));
-            calculadora.setNumero01(num1);
-            menssagemEntrada = "Digite o 2° número";
-            num2 = conversor.sringToDouble(io.entradaDados(menssagemEntrada));
-            calculadora.setNumero02(num2);
-        }
-        switch(this.opcao) {
-            case 1:
-                calculadora.somar(num1,num2);
-                saida="Resultado da Soma: " + calculadora.getResultado();
-                io.saidaDados(saida);
-                break;
-            case 2:
-                calculadora.subtrair(num1,num2);
-                saida="Resultado da Subtração: " + calculadora.getResultado();
-                io.saidaDados(saida);
-                break;
-            case 3:
-                calculadora.multiplicar(num1,num2);
-                saida="Resultado da Multiplicação: " + calculadora.getResultado();
-                io.saidaDados(saida);
-                break;
-            case 4:
-                calculadora.dividir(num1,num2);
-                saida="Resultado da Divisão: " + calculadora.getResultado();
-                io.saidaDados(saida);
-                break;
-            case 5:
-                calculadora.sair();
-            default:
-                io.saidaDados("Opção inválida.");
-                break;
-        }
-    }
-}
-
-class Calculadora {
-    private double numero01;
-    private double numero02;
-    private double resultado;
-
-    public calculadora() {
-        this(0,0,0);
-    }
-
-    public calculadora(double numero01,double numero02,double resultado) {
-        this.numero01 = numero01;
-        this.numero02 = numero02;
-        this.resultado = resultado;
-    }
-
-    public double getNumero01() {
-        return numero01;
-    }
-
-    public void setNumero01(double numero01) {
-        this.numero01 = numero01;
-    }
-
-    public double getNumero02() {
-        return numero02;
-    }
-
-    public void setNumero02(double numero02) {
-        this.numero02 = numero02;
-    }
-
-    public double getResultado() {
-        return resultado;
-    }
-
-    public void setResultado(double resultado) {
-        this.resultado = resultado;
-    }
-    public void somar(double numero01, double numero02) {
-        setResultado(this.getNumero01()+this.getNumero02());
-    }
-    public void subtrair(double numero01, double numero02) {
-        setResultado(this.getNumero01()-this.getNumero02());
-    }
-    public void multiplicar(double numero01, double numero02) {
-        setResultado(this.getNumero01()*this.getNumero02());
-    }
-    public void dividir(double numero01, double numero02) {
-        setResultado(this.getNumero01()/this.getNumero02());
-    }
-    public void sair() {
-        System.exit(0);
-    }
-}
-
-class EntradaSaidaDados {
-    public String entradaDados(String menssagemEntrada) {
-        return JOptionPane.showInputDilog(menssagemEntrada);
-    }
-    public void saidaDados(String menssagemSaida) {
-        JOptionPande.showInputDialog(null, menssagemSaida);
-    }
-}
-
-class ConversorNumeros {
-    public Integer StringToInt(String num) {
-        int conversor = Integer.parseInt(num);
-        return (conversor);
-    }
-    public Double stringToDouble(String num) {
-        double conversor = Double.parseDouble(num);
-        return (conversor);
+        Calculadora app = new Calculadora();
+        app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
