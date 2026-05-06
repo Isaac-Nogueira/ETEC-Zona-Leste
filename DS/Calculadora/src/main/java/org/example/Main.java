@@ -9,7 +9,7 @@ class Calculadora extends JFrame {
 
     JTextField texto1, texto2;
 
-    JButton somar, subtrair, multiplicar, dividir, raiz;
+    JButton somar, subtrair, multiplicar, dividir, raiz, limpar;
 
     public Calculadora() {
         super("Calculadora");
@@ -18,9 +18,10 @@ class Calculadora extends JFrame {
 
         setLayout(null);
 
+        // ------ Definindo od Elementos ------ //
+
         rotulo1 = new JLabel("1° Número: ");
         rotulo2 = new JLabel("2° Número: ");
-        exibir = new JLabel("");
 
         texto1 = new JTextField(5);
         texto2 = new JTextField(5);
@@ -29,21 +30,77 @@ class Calculadora extends JFrame {
         subtrair = new JButton("Subtrair");
         multiplicar = new JButton("Multiplicar");
         dividir = new JButton("Dividir");
-        raiz = new JButton("Tirar a Raiz");
+        raiz = new JButton("Raiz");
+        limpar = new JButton("Limpar");
+
+        exibir = new JLabel("");
+
+        // ------ Posicionando os Elementos ------ //
 
         rotulo1.setBounds(50, 20, 100, 20);
         rotulo2.setBounds(50, 60, 100, 20);
 
-        texto1.setBounds(120, 20, 200, 20);
-        texto2.setBounds(120, 60, 200, 20);
+        texto1.setBounds(140, 20, 200, 20);
+        texto2.setBounds(140, 60, 200, 20);
 
-        exibir.setBounds(200, 160, 200, 20);
+        somar.setBounds(50, 110, 140, 20);
+        subtrair.setBounds(200, 110, 140, 20);
+        multiplicar.setBounds(50, 140, 140, 20);
+        dividir.setBounds(200, 140,140, 20);
+        raiz.setBounds(50, 170, 140, 20);
+        limpar.setBounds(200, 170, 140, 20);
 
-        somar.setBounds(50, 100, 120, 20);
-        subtrair.setBounds(50, 130, 120, 20);
-        multiplicar.setBounds(50, 160, 120, 20);
-        dividir.setBounds(50, 190,120, 20);
-        raiz.setBounds(50, 220, 120, 20);
+        exibir.setBounds(50, 210, 200, 20);
+
+        // ------ Definindo a Fonte do Texto dos Elementos ------ //
+
+        rotulo1.setFont(new Font("Times New Roman", Font.BOLD, 17));
+        rotulo2.setFont(new Font("Times New Roman", Font.BOLD, 17));
+
+        texto1.setFont(new Font("Times New Roman", Font.BOLD, 17));
+        texto2.setFont(new Font("Times New Roman", Font.BOLD, 17));
+
+        exibir.setFont(new Font("Times New Roman", Font.BOLD, 17));
+
+        somar.setFont(new Font("Times New Roman", Font.BOLD, 17));
+        subtrair.setFont(new Font("Times New Roman", Font.BOLD, 17));
+        multiplicar.setFont(new Font("Times New Roman", Font.BOLD, 17));
+        dividir.setFont(new Font("Times New Roman", Font.BOLD, 17));
+        raiz.setFont(new Font("Times New Roman", Font.BOLD, 17));
+        limpar.setFont(new Font("Time New Roman", Font.BOLD, 17));
+
+        // ------ Definindo a Cor do Texto dos Elementos ------ //
+
+        rotulo1.setForeground(new Color(247, 248, 252));
+        rotulo2.setForeground(new Color(247, 248, 252));
+
+        texto1.setForeground(new Color(247, 248, 252));
+        texto2.setForeground(new Color(247, 248, 252));
+
+        exibir.setForeground(new Color(247, 248, 252));
+
+        somar.setForeground(new Color(247, 248, 252));
+        subtrair.setForeground(new Color(247, 248, 252));
+        multiplicar.setForeground(new Color(247, 248, 252));
+        dividir.setForeground(new Color(247, 248, 252));
+        raiz.setForeground(new Color(247, 248, 252));
+        limpar.setForeground(new Color(247, 248, 252));
+
+        // ------ Definindo a Cor do Backgroundo dos Elementos ------ //
+
+        texto1.setBackground(new Color(63, 94, 102));
+        texto2.setBackground(new Color(63, 94, 102));
+
+        somar.setBackground(new Color(74, 117, 128));
+        subtrair.setBackground(new Color(74, 117, 128));
+        multiplicar.setBackground(new Color(74, 117, 128));
+        dividir.setBackground(new Color(74, 117, 128));
+        raiz.setBackground(new Color(74, 117, 128));
+        limpar.setBackground(new Color(74, 117, 128));
+
+        tela.setBackground(new Color(49, 76, 83));
+
+        // ------ Definindo o Conteúdo das Operações ------ //
 
         somar.addActionListener(
                 new ActionListener() {
@@ -143,7 +200,21 @@ class Calculadora extends JFrame {
                 }
         );
 
+        limpar.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        texto1.setText("");
+                        texto2.setText("");
+                    }
+                }
+        );
+
+        // ------ Definindo o Elemento Exibir como false ------ //
+
         exibir.setVisible(false);
+
+        // ------ Adicionando os Elementos ------ //
 
         tela.add(rotulo1);
         tela.add(rotulo2);
@@ -156,12 +227,19 @@ class Calculadora extends JFrame {
         tela.add(multiplicar);
         tela.add(dividir);
         tela.add(raiz);
+        tela.add(limpar);
 
         tela.add(exibir);
 
-        setSize(400, 350);
+        // ------ Definindo a Dimensão da Tela ------ //
+
+        setSize(400, 300);
+
+        // ------ Definindo o Conteúdo como Visível ------ //
 
         setVisible(true);
+
+        // ------ Centralizando a Tela ao Compilar ------ //
 
         setLocationRelativeTo(null);
     }
