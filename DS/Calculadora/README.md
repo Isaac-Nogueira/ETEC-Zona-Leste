@@ -3,7 +3,7 @@
 **Disciplina:** Desenvolvimento de Sistemas  
 **Professor:** Carlos Alberto  
 **Aluno:** Isaac Dantas Nogueira  
-**Instituição:** ETEC da Zona Leste – 2°DS MAS  
+**Instituição:** ETEC da Zona Leste – 2°DS AMS
 **Data:** 07/05/2026
 
 ---
