@@ -1,0 +1,409 @@
+/* ============================================================
+   WATCHLIST — tema "cinema noturno": marsala + preto
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root {
+    --bg: #0E0A0B;
+    --surface: #1B1416;
+    --surface-hover: #241A1D;
+    --marsala: #7C2C3B;
+    --marsala-light: #A83B4C;
+    --marsala-deep: #3C1119;
+    --gold: #D9A657;
+    --text: #F2E9E7;
+    --text-muted: #AB9997;
+    --border: rgba(242, 233, 231, 0.09);
+    --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Cabeçalho / marquise ---------- */
+
+.topbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 32px 24px;
+}
+
+.topbar-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-bottom: 3px solid var(--marsala);
+    padding-bottom: 20px;
+}
+
+.marquee {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--text);
+}
+
+.marquee span { color: var(--marsala-light); }
+
+.subtitle {
+    margin: 6px 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.counter {
+    margin: 4px 0 0;
+    font-size: 0.82rem;
+    color: var(--marsala-light);
+    font-weight: 500;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: var(--radius);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-primary {
+    background: var(--marsala);
+    color: #fff;
+}
+.btn-primary:hover { background: var(--marsala-light); }
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+.btn-secondary:hover { color: var(--text); border-color: var(--text-muted); }
+
+.btn-danger {
+    background: transparent;
+    color: #D97878;
+    border: 1px solid rgba(217, 120, 120, 0.35);
+}
+.btn-danger:hover { background: rgba(217, 120, 120, 0.12); }
+
+/* ---------- Filtros ---------- */
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin: 22px 0 4px;
+    flex-wrap: wrap;
+}
+
+.filter-pill {
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+
+.filter-pill.active {
+    background: var(--marsala);
+    color: #fff;
+    border-color: var(--marsala);
+}
+
+/* ---------- Grid de produções ---------- */
+
+.grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 32px 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 22px;
+}
+
+.empty-state {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 32px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-poster {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    background-color: var(--marsala-deep);
+    background-image: linear-gradient(160deg, var(--marsala) 0%, var(--marsala-deep) 100%);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-poster .initial {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.16);
+}
+
+.poster-topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(to bottom,
+        rgba(14, 10, 11, 0.92) 0%,
+        rgba(14, 10, 11, 0.92) 55%,
+        transparent 100%);
+}
+
+.tipo-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text);
+}
+
+.status-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.status-assistido { background: rgba(124, 44, 59, 0.85); color: #fff; }
+.status-assistindo { background: rgba(217, 166, 87, 0.9); color: #241609; }
+.status-querover { background: rgba(14, 10, 11, 0.6); color: var(--text); border: 1px solid var(--border); }
+
+.card-body {
+    padding: 10px 14px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.card-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.card-meta {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.card-rating {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.card-rating.empty { color: var(--text-muted); font-weight: 400; }
+
+.card-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    padding-top: 6px;
+}
+
+.card-actions .btn {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+}
+
+/* ---------- Formulários (criar / editar) ---------- */
+
+.form-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.form-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px;
+    width: 100%;
+    max-width: 480px;
+}
+
+.form-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0 0 26px;
+    border-left: 4px solid var(--marsala);
+    padding-left: 12px;
+}
+
+.field { margin-bottom: 18px; }
+
+.field label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 11px 12px;
+    border-radius: var(--radius);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.95rem;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: none;
+    border-color: var(--marsala-light);
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+@media (max-width: 480px) {
+    .form-card { padding: 26px 20px; }
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--surface);
+    border: 1px solid var(--marsala);
+    color: var(--text);
+    padding: 14px 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    font-size: 0.9rem;
+    z-index: 999;
+    animation: toast-in 0.3s ease forwards, toast-out 0.3s ease 3s forwards;
+}
+@keyframes toast-in { from { opacity:0; transform:translateY(-10px);} to { opacity:1; transform:translateY(0);} }
+@keyframes toast-out { to { opacity:0; transform:translateY(-10px);} }
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal-overlay.show { display: flex; }
+
+.modal-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    max-width: 380px;
+    width: 90%;
+}
+.modal-box h4 {
+    font-family: 'Oswald', sans-serif;
+    margin: 0 0 10px;
+    color: var(--text);
+}
+.modal-box p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 22px;
+}
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.capa-atual-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.capa-preview {
+    width: 80px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.capa-vazia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.capa-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.capa-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
